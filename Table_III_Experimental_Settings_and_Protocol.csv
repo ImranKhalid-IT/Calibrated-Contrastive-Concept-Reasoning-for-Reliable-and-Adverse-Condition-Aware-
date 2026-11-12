@@ -1,0 +1,27 @@
+﻿Design Component,Experimental Configuration,Implementation and Reproducibility Details
+Computing platform,Google Colab GPU runtime; single-GPU execution.,"All detector inference, feature extraction, interventions, and profiling were executed within the same runtime configuration."
+GPU hardware,NVIDIA Tesla T4 GPU; 16 GB GDDR6 VRAM.,Single-GPU execution without multi-GPU distribution; accelerator model and memory were logged for each session.
+Python environment,Python 3.10.12.,Identical interpreter version for all experiments.
+Deep learning framework,PyTorch 2.3.1+cu121; Torchvision 0.18.1+cu121.,Used for all detector inference and feature extraction operations.
+CUDA environment,CUDA 12.1 runtime; cuDNN 8.9.2.,CUDA synchronization was applied before all latency and memory measurements.
+Supporting libraries,Ultralytics 8.2.103; Transformers 4.41.2; NumPy 1.26.4; OpenCV 4.10.0; SciPy 1.13.1; scikit-learn 1.5.1; pycocotools 2.0.8.,Installed package versions were recorded with pip freeze and are archived with the released code.
+Primary benchmark,MS COCO 2017.,COCO category annotations and object-level ground-truth bounding boxes.
+Concept-development set,"2,000 train2017 images; K = 20 concepts.","Used for adapter fitting, concept dictionary construction, clean-class concept priors, and threshold development."
+Reliability-calibration set,500 disjoint val2017 images.,Used exclusively for fitting the reliability calibrator and selecting reporting thresholds.
+Sealed evaluation set,500 separate val2017 images.,Held-out evaluation; no parameter tuning or threshold adjustment after evaluation.
+Primary detector,Faster R-CNN ResNet-50 FPN; Torchvision COCO V1 checkpoint (fasterrcnn_resnet50_fpn_coco-258fb6c6.pth).,"Frozen detector weights; minimum input dimension 480 pixels and maximum dimension 720 pixels; Torchvision default RPN NMS IoU 0.7, box NMS IoU 0.5, and at most 100 detections per image."
+Validation detectors,"YOLOv8m (yolov8m.pt, COCO pretrained, Ultralytics 8.2.103); DETR ResNet-50 (facebook/detr-resnet-50, Hugging Face).",Frozen COCO-pretrained checkpoints; 640-pixel input resolution with architecture-specific preprocessing; YOLOv8m default NMS IoU 0.7; DETR uses set prediction without NMS.
+Inference configuration,Batch size = 1; confidence threshold = 0.50; ground-truth matching at IoU ≥ κ (Equation (2)).,Fixed inference settings and model-specific post-processing across all evaluation images.
+Explanation baselines,"Grad-CAM++, D-RISE, Score-CAM, and an object-level concept adaptation of CRAFT.","All methods evaluated on the same matched-object set, fixed class contrasts, and evaluation protocol."
+Concept representation,20 shared nonnegative dictionary concepts.,Object-aligned concept extraction; concept names assigned after inspecting activation patterns.
+Adverse conditions,"Fog, rain, Gaussian/motion blur, and low illumination; normalized severity steps 0–5.",Identical corruption settings across detectors and methods; severity level 3 used as the common comparison anchor.
+Restoration operators,"Guided dehazing, rain suppression, bounded deblurring, and bounded exposure correction.",Applied to the matched clean–adverse–restored triplets; 300 candidate objects per condition at severity level 3.
+Intervention design,Graded suppression and bounded insertion.,"Five intervention strengths: 0.20, 0.40, 0.60, 0.80, and 1.00; matched nonsemantic spatial controls."
+Spatial validation,Maximum 5 candidate regions per object.,100 spatial controls per region; foreground-restricted sampling.
+Intervention execution,Intervention batch size = 2.,Small-batch inference to accommodate GPU memory constraints.
+Randomization,Base random seed = 42; all replicate seeds derived deterministically from it.,"Repeated-edit, control, and bootstrap seeds are generated from the base seed and are identical across compared methods; audit seeds used in Equation (28) are drawn from a separate derived stream that is never used for calibrator features."
+Concept-role evaluation,Five concept roles plus an internal undetermined state; directional dead-zone δ_M = 0.01 (margin units); equivalence band ±δ_eq = ±0.05.,"1,000 audited concept instances for role evaluation (precision over the 902 role-assigned instances, recall over all 1,000); 250 audited cases for multi-label adverse-failure diagnosis."
+Audit protocol,Independent re-evaluation of each object–concept pair with fresh intervention seeds and held-out image edits (Equation (28)).,Audit replicates are never used as calibrator features; audit labels are released with the code.
+Reliability decision,ℓ2-regularized logistic reliability score (development split) with monotone Platt recalibration (a > 0; calibration split); REPORT/UNCERTAIN/ABSTAIN policy.,Thresholds τ_L = 0.56 and τ_H = 0.70 selected on the calibration split only and frozen before sealed testing.
+Resource profiling,Pairwise latency and peak GPU memory recorded for all three detector pairs.,CUDA-synchronized wall-clock timing and peak allocated GPU memory (torch.cuda.max_memory_allocated) under an identical protocol; warm-up and repetition settings are fixed in the released profiling script.
+Statistical analysis,Image-clustered paired bootstrap.,"1,000 bootstrap repetitions, 95% confidence intervals, and Holm multiplicity correction."

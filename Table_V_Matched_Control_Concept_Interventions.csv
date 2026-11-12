@@ -1,0 +1,8 @@
+﻿Reference object,Candidate concept,Fixed contrast class,Raw removal effect D^raw,Mean control effect D̄^ctrl,AIE (95% CI),Feature–image agreement G^-,Assigned role
+Car,Wheel/body geometry,Truck,+0.29,+0.11,"+0.11 [0.08, 0.14]",84%,Supporting
+Zebra,Stripe pattern,Horse,+0.27,+0.10,"+0.10 [0.07, 0.13]",86%,Supporting
+Dog,Facial/fur region,Cat,+0.22,+0.08,"+0.09 [0.06, 0.12]",81%,Supporting
+Motorcycle,Wheel configuration,Bicycle,+0.19,+0.10,"+0.05 [0.02, 0.08]",80%,Supporting
+Stop sign,Red octagonal region,Traffic light,+0.28,+0.09,"+0.12 [0.10, 0.15]",85%,Supporting
+Cat,Ear region,Dog,-0.05,+0.04,"-0.08 [-0.10, -0.05]",80%,Conflicting
+Airplane,Wing shape,Bird,+0.15,+0.10,"+0.01 [-0.02, 0.04]",66%,Irrelevant

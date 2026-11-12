@@ -1,0 +1,11 @@
+﻿C³R configuration,Contrastive fidelity (↑),Role macro-F1 (↑),Failure macro-F1 (↑),Localization agreement (↑),Role ECE (↓),Risk@75% (↓),Paired Δ fidelity (Full − ablated; 95% CI)
+Full C³R,0.66,0.70,0.63,0.72,0.049,0.152,Reference
+Without cross-detector alignment,0.63,0.66,0.61,0.69,0.083,0.158,"+0.03 [0.01, 0.05]"
+Use top-2 competitor only,0.61,0.67,0.62,0.71,0.080,0.151,"+0.05 [0.03, 0.07]"
+Without matched intervention controls,0.60,0.64,0.60,0.69,0.100,0.176,"+0.06 [0.04, 0.08]"
+Without missing-concept reasoning,0.64,0.67,0.62,0.71,0.079,0.153,"+0.02 [0.00, 0.04]"
+Without localization-response terms,0.65,0.68,0.63,0.65,0.077,0.149,"+0.01 [-0.01, 0.03]"
+Without adverse-failure module,0.65,0.69,N/A,0.71,0.076,0.147,"+0.01 [-0.01, 0.03]"
+Without image-level validation,0.62,0.66,0.60,0.69,0.096,0.174,"+0.04 [0.02, 0.05]"
+Without reliability calibration,0.66,0.70,0.63,0.72,0.104,0.152,"+0.00 [-0.01, +0.01]"
+Without abstention,0.66,0.70,0.63,0.72,0.049,N/A,"+0.00 [-0.01, +0.01]"

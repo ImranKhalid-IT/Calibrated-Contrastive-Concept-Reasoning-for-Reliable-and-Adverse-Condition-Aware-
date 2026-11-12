@@ -1,0 +1,13 @@
+﻿Study,Object-level,Semantic concepts,Interventions,Adverse diagnosis,Explanation calibration,Cross-detector alignment
+CRAFT [20],×,✓,×,×,×,×
+OCTET [28],✓,×,✓,×,×,×
+CBM intervention analysis [32],×,✓,✓,×,×,×
+ODAM [7],✓,×,×,×,×,×
+GCE [22],✓,✓,×,×,×,×
+VPS [25],✓,×,×,×,×,×
+Counterfactual explanations [29],✓,×,✓,×,×,×
+IntegraXAI [12],✓,✓,×,×,×,×
+EEL-RIS [8],✓,×,×,×,×,×
+Causal concepts [24],×,✓,✓,×,×,×
+SURF / concept-faithfulness evaluation [15],×,✓,×,×,×,×
+C³R (Proposed),✓,✓,✓,✓,✓,✓

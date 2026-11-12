@@ -1,0 +1,4 @@
+﻿Frozen detector pair,Valid shared objects (n),Concept-match coverage (%),Rank Spearman ρ,Sign agreement (%),Spatial-mask IoU,Pair latency (ms/image pair),Peak VRAM (GB)
+Faster R-CNN ↔ YOLOv8m,350,79%,0.55,72%,0.49,"2,068",5.2
+Faster R-CNN ↔ DETR-R50,324,74%,0.5,67%,0.45,"3,016",5.8
+YOLOv8m ↔ DETR-R50,333,76%,0.53,69%,0.47,"1,838",5.8

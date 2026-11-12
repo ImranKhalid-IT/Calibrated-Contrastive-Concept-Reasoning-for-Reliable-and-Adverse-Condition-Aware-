@@ -1,0 +1,11 @@
+﻿Evaluation family,Metric / operating point,Before calibration,After calibration,Coverage,Evaluation criteria / notes
+Calibration quality,Expected calibration error (ECE) ↓,0.104,0.049,—,Lower is better; computed against independent audit labels
+Calibration quality,Brier score ↓,0.167,0.156,—,Lower is better; computed on the same audited evaluation sample
+Discrimination,Audit-correctness AUROC ↑,0.744,0.744,—,"Higher is better; evaluates role correctness (Y^rel), not detector class accuracy"
+Calibration quality,Negative log-likelihood (NLL) ↓,0.535,0.485,—,Lower is better
+Selective risk,Risk at 100% conditional coverage,0.243,0.243,"902/902 conditional; 902/1,000 overall (90.2%)",All role-assigned instances retained
+Selective risk,Risk at 90% conditional coverage,0.201,0.201,"812/902 conditional; 812/1,000 overall (81.2%)",Lower risk is preferred
+Selective risk,Risk at 80% conditional coverage,0.163,0.163,"722/902 conditional; 722/1,000 overall (72.2%)",Lower risk is preferred
+Selective risk,Risk at 75% conditional coverage,0.152,0.152,"676/902 conditional; 676/1,000 overall (67.6%)",Lower risk is preferred
+Selective risk,Risk at 60% conditional coverage,0.137,0.137,"541/902 conditional; 541/1,000 overall (54.1%)",Lower risk is preferred
+Three-way reporting policy,REPORT / UNCERTAIN / ABSTAIN,—,τ_L = 0.56; τ_H = 0.70,—,Thresholds selected on the calibration split and frozen; policy evaluated on the sealed test set

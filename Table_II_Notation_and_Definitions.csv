@@ -1,0 +1,9 @@
+﻿Notation,Meaning
+"m, g, i, t","Detector, annotated object, candidate, and condition t ∈ {c, a, r}."
+"b*_g, b^t_g, d_img","Ground-truth box, matched box, and image diagonal used for displacement normalization."
+"z, h, D, a, B_m","Native object feature, shared embedding, nonnegative dictionary, concept coefficients, and native-feature decoder."
+"y*_g, y^-_g, M_g","Fixed reference class, fixed plausible alternative, and target-versus-alternative log margin."
+"p_m, o_m",Conditional class distribution and normalized detector-specific objectness/foreground score.
+"I^-, I^+, AIE, G_gk","Suppression/insertion, control-adjusted dose-integrated effect, and feature–image agreement."
+"C_dev, C_cal, C_test","Disjoint development, calibration, and held-out evaluation groups."
+"ϵ, δ, τ, τ_nce, κ","Stabilizers, effect thresholds, reporting cutoffs, alignment temperature, and IoU eligibility cutoff."

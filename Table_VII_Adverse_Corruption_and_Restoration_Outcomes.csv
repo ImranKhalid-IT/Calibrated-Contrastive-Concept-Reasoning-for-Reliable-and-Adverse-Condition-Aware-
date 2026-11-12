@@ -1,0 +1,5 @@
+﻿Condition,Severity / restoration,Valid matched triplets (n),Mean contrastive log-margin (clean / adverse / restored),Margin recovery (%),Mean GT-box IoU (clean / adverse / restored),Localization recovery (%),Unmatched (n),Missing-role rate (%)
+Fog,Severity 3 / guided dehazing,224,1.20 / 0.78 / 1.02,56.1,0.79 / 0.63 / 0.72,55.5,76,30
+Rain,Severity 3 / rain suppression,241,1.19 / 0.87 / 1.07,60.1,0.79 / 0.68 / 0.75,60.0,59,23
+Gaussian / motion blur,Severity 3 / bounded deblurring,229,1.20 / 0.84 / 1.02,49.2,0.80 / 0.65 / 0.72,43.9,71,25
+Low illumination,Severity 3 / bounded exposure correction,208,1.17 / 0.71 / 0.97,57.1,0.79 / 0.61 / 0.70,52.4,92,34
